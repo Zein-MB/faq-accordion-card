@@ -1,0 +1,183 @@
+// Soft red
+$Very-dark-desaturated-blue: hsl(238, 29%, 16%);
+$Soft-red: hsl(14, 88%, 65%);
+// Gradient
+$Soft-violet: hsl(273, 75%, 66%);
+$Soft-blue: hsl(240, 73%, 65%);
+// Text
+$Very-dark-grayish-blue: hsl(237, 12%, 33%);
+$Dark-grayish-blue: hsl(240, 6%, 50%);
+// Dividers
+$Light-grayish-blue: hsl(240, 5%, 91%);
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: 12px;
+  font-family: 'Kumbh Sans', sans-serif;
+  background-image: linear-gradient(to bottom, $Soft-violet, $Soft-blue);
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Start faq */
+.faq {
+  width: 80em;
+  height: 482.2px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 5em 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3em;
+  background-image: url(images/bg-pattern-desktop.svg);
+  background-repeat: no-repeat;
+  background-position: -47em -25em;
+  background-size: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 35px 0px #00000050;
+
+  /* Start image section */
+
+  .img-container {
+    max-width: 100%;
+    overflow-x: hidden;
+
+    .woman-online.dt {
+      left: -80px;
+      position: relative;
+    }
+
+    .woman-online.mb {
+      display: none;
+    }
+  }
+
+  .box.dt {
+    position: absolute;
+    left: -13%;
+    top: 41%;
+    filter: drop-shadow(0 20px 15px rgba(1, 1, 1, 0.178));
+  }
+
+  /* End image section */
+  /* Start text section */
+  .faq-side {
+    display: grid;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1em;
+    }
+
+    .part {
+      width: 80%;
+      overflow: hidden;
+      border-bottom: 1px solid $Light-grayish-blue;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: .3s;
+
+      &:hover {
+        color: $Soft-red;
+      }
+
+      p:first-of-type {
+        font-size: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: .3s;
+
+        img {
+          max-width: 100%;
+          height: 100%;
+          transition: .3s;
+        }
+      }
+
+      .active {
+        font-weight: bold;
+
+        img {
+          transform: rotate(-180deg);
+        }
+      }
+
+      p:last-of-type {
+        height: 0;
+        opacity: 0;
+        font-size: 13px;
+        color: $Dark-grayish-blue;
+        transition: .3s;
+      }
+
+      .show {
+        height: 100% !important;
+        opacity: 1 !important;
+        padding: 10px 0;
+      }
+    }
+  }
+
+  /* End text section */
+}
+
+/* Start Responsive */
+
+@media (max-width: 767px) {
+  .faq {
+    width: 90vw;
+    grid-template-columns: unset;
+    height: auto;
+    background-image: url(images/bg-pattern-mobile.svg);
+    background-position: center top;
+    background-size: 73%;
+
+    .image-side {
+      .img-container {
+
+        .woman-online.dt {
+          display: none;
+        }
+
+        .woman-online.mb {
+          display: block;
+          position: absolute;
+          width: 65vw;
+          left: 4em;
+          top: -9.5em;
+        }
+      }
+
+      .box.dt {
+        display: none;
+      }
+    }
+
+    .faq-side {
+      place-items: center;
+      margin-top: 5em;
+
+      .part {
+        padding-bottom: 10px;
+
+        p:first-of-type {
+          font-size: 14px;
+        }
+
+      }
+    }
+  }
+}
+
+/* End Responsive */
+
+/* End faq */
